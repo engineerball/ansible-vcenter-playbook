@@ -1,48 +1,48 @@
 ---
 - hosts: new-host-centos7
   connection: local
-  vars_prompt:
-    - name: "vcenter_host"
-      prompt: "Enter vcenter host"
-      private: no
-      default: "vcsa"
-    - name: "vcenter_user"
-      prompt: "Enter vcenter username"
-      private: no
-    - name: "vcenter_password"
-      prompt: "Enter vcenter password"
-      private: yes
+  # vars_prompt:
+  #   - name: "vcenter_host"
+  #     prompt: "Enter vcenter host"
+  #     private: no
+  #     default: "vcsa"
+  #   - name: "vcenter_user"
+  #     prompt: "Enter vcenter username"
+  #     private: no
+  #   - name: "vcenter_password"
+  #     prompt: "Enter vcenter password"
+  #     private: yes
   roles:
     - teerapat_khu.vcenter
 
 - hosts: new-host-rhel7
   connection: local
-  vars_prompt:
-    - name: "vcenter_host"
-      prompt: "Enter vcenter host"
-      private: no
-      default: "vcsa"
-    - name: "vcenter_user"
-      prompt: "Enter vcenter username"
-      private: no
-    - name: "vcenter_password"
-      prompt: "Enter vcenter password"
-      private: yes
+  # vars_prompt:
+  #   - name: "vcenter_host"
+  #     prompt: "Enter vcenter host"
+  #     private: no
+  #     default: "vcsa"
+  #   - name: "vcenter_user"
+  #     prompt: "Enter vcenter username"
+  #     private: no
+  #   - name: "vcenter_password"
+  #     prompt: "Enter vcenter password"
+  #     private: yes
   roles:
     - teerapat_khu.vcenter
 
 - hosts: new-host-atomic
   connection: local
-  vars_prompt:
-    - name: "vcenter_host"
-      prompt: "Enter vcenter host"
-      private: no
-      default: "vcsa"
-    - name: "vcenter_user"
-      prompt: "Enter vcenter username"
-      private: no
-    - name: "vcenter_password"
-      prompt: "Enter vcenter password"
-      private: yes
+  # vars_prompt:
+  #   - name: "vcenter_host"
+  #     prompt: "Enter vcenter host"
+  #     private: no
+  #     default: "vcsa"
+  #   - name: "vcenter_user"
+  #     prompt: "Enter vcenter username"
+  #     private: no
+  #   - name: "vcenter_password"
+  #     prompt: "Enter vcenter password"
+  #     private: yes
   roles:
     - teerapat_khu.vcenter
