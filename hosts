@@ -1,0 +1,22 @@
+[host]
+vm1 cpu=2 ip="192.168.12.2" num_disks=1
+vm2 cpu=2 ip="192.168.12.3" num_disks=1 memory=2048
+vm3 cpu=2 ip="192.168.12.4" num_disks=2 memory=1024 disk1=60 disk2=10
+vm4 cpu=2 ip="192.168.12.5" num_disks=1
+vm5 ip="192.168.12.6" num_disks=1
+vm9 ip="192.168.12.10" num_disks=2 disk1=50
+vm7 ip="192.168.12.8" num_disks=2 disk1=50 disk2=50
+vm8 ip="192.168.12.9" num_disks=3 disk1=50 disk2=50 disk3=10
+vm9 ip="192.168.12.10" num_disks=3 disk1=50 disk2=50 disk3=10
+
+[new-host-centos7]
+
+
+[new-host-rhel7]
+
+
+[new-host-atomic]
+
+
+
+

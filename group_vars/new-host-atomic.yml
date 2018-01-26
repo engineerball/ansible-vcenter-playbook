@@ -1,0 +1,10 @@
+---
+vcenter_hostname: "10.10.15.23"
+vcenter_username: "dmp-devops@vsphere.local"
+vcenter_datacenter_name: "TMP-VSAN-Datacenter"
+vcenter_datastore_name: "TMP-VSAN_Datastore"
+vcenter_template_name: "Template_Atomic"
+numdisk: 2
+disk1: 50
+disk2: 50
+memory: 1024

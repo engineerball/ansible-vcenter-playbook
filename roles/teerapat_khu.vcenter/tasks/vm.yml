@@ -1,0 +1,111 @@
+---
+- name: Create a VM from a template
+  vmware_guest:
+    hostname: "{{ vcenter_host }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter: "{{ vcenter_datacenter_name }}"
+    validate_certs: no
+    folder: "/DevOps - Testing"
+    name: "{{ inventory_hostname }}"
+    state: poweredon
+    template: "{{ vcenter_template_name }}"
+    disk:
+    - size_gb: "{{ disk1 | default(50) }}"
+      type: thin
+      datastore: "{{ vcenter_datastore_name }}"
+    hardware:
+      memory_mb: "{{ memory | default(2048) }}"
+      num_cpus: "{{ cpu | default(2) }}"
+      osid: Guest
+      scsi: paravirtual
+    networks:
+    - name: "Public Services(100)"
+      vlan: 100
+      type: "static"
+      ip: "{{ ip }}"
+      netmask: "255.255.255.0"
+      gateway: "10.198.100.1"
+      dns_servers:
+        - 10.198.101.53
+    wait_for_ip_address: yes
+  delegate_to: localhost
+  register: deploy
+  when: num_disks == 1
+
+- name: Create a VM (Multi Disk - 2 Disks)from a template
+  vmware_guest:
+    hostname: "{{ vcenter_host }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter: "{{ vcenter_datacenter_name }}"
+    validate_certs: no
+    folder: "/DevOps - Testing"
+    name: "{{ inventory_hostname }}"
+    state: poweredon
+    template: "{{ vcenter_template_name }}"
+    disk:
+    - size_gb: "{{ disk1 | default(50) }}"
+      type: thin
+      datastore: "{{ vcenter_datastore_name }}"
+    - size_gb: "{{ disk2 | default(50) }}"
+      type: thin
+      datastore: "{{ vcenter_datastore_name }}"
+    hardware:
+      memory_mb: "{{ memory | default(2048) }}"
+      num_cpus: "{{ cpu | default(2) }}"
+      osid: Guest
+      scsi: paravirtual
+    networks:
+    - name: "Public Services(100)"
+      vlan: 100
+      type: "static"
+      ip: "{{ ip }}"
+      netmask: "255.255.255.0"
+      gateway: "10.198.100.1"
+      dns_servers:
+        - 10.198.101.53
+    wait_for_ip_address: yes
+  delegate_to: localhost
+  register: deploy
+  when: num_disks == 2
+
+- name: Create a VM (Multi Disk - 3 Disks)from a template
+  vmware_guest:
+    hostname: "{{ vcenter_host }}"
+    username: "{{ vcenter_username }}"
+    password: "{{ vcenter_password }}"
+    datacenter: "{{ vcenter_datacenter_name }}"
+    validate_certs: no
+    folder: "/DevOps - Testing"
+    name: "{{ inventory_hostname }}"
+    state: poweredon
+    template: "{{ vcenter_template_name }}"
+    disk:
+    - size_gb: "{{ disk1 | default(50) }}"
+      type: thin
+      datastore: "{{ vcenter_datastore_name }}"
+    - size_gb: "{{ disk2 | default(50) }}"
+      type: thin
+      datastore: "{{ vcenter_datastore_name }}"
+    - size_gb: "{{ disk3 | default(50) }}"
+      type: thin
+      datastore: "{{ vcenter_datastore_name }}"
+    hardware:
+      memory_mb: "{{ memory | default(2048) }}"
+      num_cpus: "{{ cpu | default(2) }}"
+      osid: Guest
+      scsi: paravirtual
+    networks:
+    - name: "Public Services(100)"
+      vlan: 100
+      type: "static"
+      ip: "{{ ip }}"
+      netmask: "255.255.255.0"
+      gateway: "10.198.100.1"
+      dns_servers:
+        - 10.198.101.53
+    wait_for_ip_address: yes
+  delegate_to: localhost
+  register: deploy
+  when: num_disks == 3
